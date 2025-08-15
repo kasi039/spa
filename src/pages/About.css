@@ -1,0 +1,156 @@
+/* ------ hero banner ------ */
+.about-hero {
+  text-align: center;
+  padding-block: 3rem 2rem;
+  border-bottom: 1px solid #eee;
+}
+.about-hero h1 { font-size: 2.5rem; margin: 0 0 .75rem; }
+body.dark .about-hero { border-color: #2a2a2a; }
+
+/* ------ at-a-glance stats ------ */
+.about-stats {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin: 1.75rem 0 2.5rem;
+}
+.stat {
+  background: #f5f5f5;
+  border-radius: .6rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.stat:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.12); }
+.stat .num {
+  display: block;
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+.stat .label { color: #444; font-size: .95rem; }
+body.dark .stat { background: #1e1e1e; box-shadow: 0 1px 4px rgba(0,0,0,.45); }
+body.dark .stat .label { color: #cfcfcf; }
+
+/* ------ mission & values ------ */
+.values { margin-block: 2rem 3rem; }
+.value-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+.value-grid li {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: .5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+body.dark .value-grid li { background: #1e1e1e; }
+
+/* ------ timeline ------ */
+.timeline { margin-bottom: 2.5rem; }
+.timeline h2 { margin-bottom: .75rem; }
+
+.timeline ol {
+  /* keep the blue line and the numbers */
+  border-left: 3px solid #0055ff;
+  margin: 0;
+  padding-left: 1.25rem;      /* space between numbers and text */
+  list-style: decimal;        /* show 1, 2, 3… */
+  list-style-position: outside;
+}
+
+.timeline li {
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+  position: relative;
+}
+
+/* REMOVE the dot marker */
+.timeline li::before { content: none; }
+
+/* dark theme */
+body.dark .timeline ol { border-color: #80aaff; }
+
+
+/* ------ capabilities badges ------ */
+.capabilities { margin-bottom: 2.5rem; }
+.caps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem .6rem;
+  list-style: none;
+  margin: .75rem 0 0;
+  padding: 0;
+}
+.cap {
+  background: #eef3ff;
+  color: #0038ff;
+  border: 1px solid #c6d6ff;
+  padding: .4rem .7rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .9rem;
+}
+body.dark .cap {
+  background: #0f2a5c;
+  border-color: #274984;
+  color: #c7d8ff;
+}
+
+/* ------ team cards ------ */
+.team-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.team .card {
+  text-align: center;
+  background: #fafafa;
+  padding: 1.25rem;
+  border-radius: .6rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  border-top: 3px solid transparent;
+}
+.team .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+  border-top-color: #0055ff;
+}
+.team .card h3 { margin: .5rem 0 .25rem; }
+.team .card p  { margin: 0; color: #444; }
+
+/* avatar with ring */
+.avatar {
+  width: 96px; height: 96px;
+  margin: 0 auto .75rem;
+  border-radius: 50%;
+  padding: 3px;
+  background:
+    radial-gradient(closest-side, #fff 98%, transparent 100%)
+    padding-box,
+    conic-gradient(#0055ff, #00b4ff) border-box;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+body.dark .team .card { background: #1e1e1e; }
+body.dark .team .card p { color: #cfcfcf; }
+body.dark .avatar {
+  background:
+    radial-gradient(closest-side, #1e1e1e 98%, transparent 100%) padding-box,
+    conic-gradient(#80aaff, #4d8cff) border-box;
+}
+
+/* ------ responsive tweaks ------ */
+@media (max-width: 480px) {
+  .about-hero h1 { font-size: 2.1rem; }
+}

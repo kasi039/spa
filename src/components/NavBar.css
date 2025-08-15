@@ -1,0 +1,84 @@
+/* ----------  Desktop layout  ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: #f5f5f5;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+/* Site name / logo placeholder */
+.brand {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+/* Link stack */
+.menu a {
+  color: #0055ff;
+  text-decoration: none;
+  margin-right: 1rem;
+  font-weight: 600;
+}
+
+.menu a:last-child { margin-right: 0; }
+
+.menu a.active,
+.menu a:hover { text-decoration: underline; }
+
+/* ----------  Hamburger button  ---------- */
+.hamburger {
+  /* invisible on large screens (handled below) */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #0055ff;
+  transition: transform 250ms ease, opacity 250ms ease;
+}
+
+/* X icon animation */
+.hamburger.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.is-open span:nth-child(2) { opacity: 0; }
+.hamburger.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ----------  Mobile behaviour  ---------- */
+@media (max-width: 767px) {
+  .menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #f5f5f5;
+    border-left: 1px solid #d6d6d6;
+    border-bottom: 1px solid #d6d6d6;
+    padding: 1rem;
+    display: none;        /* hidden by default */
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .menu.open { display: flex; }
+
+  /* hide right-margin on stacked links */
+  .menu a { margin: 0; }
+
+  /* show hamburger, hide inline links */
+  .hamburger { display: flex; }
+}
+
+/* ----------  Desktop mode (≥768 px) ---------- */
+@media (min-width: 768px) {
+  /* show links inline, hide hamburger */
+  .menu { display: flex !important; }
+  .hamburger { display: none; }
+}

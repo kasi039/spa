@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
+/* =========================================================
+   GLOBAL RESET & BODY STYLES
+   ========================================================= */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, sans-serif;
+  background: #ffffff;
+  color: #000;
+  line-height: 1.6;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* =========================================================
+   GLOBAL HELPERS
+   ========================================================= */
+.container {
+  max-width: 960px;
+  margin-inline: auto;
+  padding: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+main { animation: fadeIn 400ms ease-out; }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* =========================================================
+   GLOBAL BUTTONS
+   ========================================================= */
+.btn-primary,
+.btn-lg,
+form button {
+  background: #0055ff;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: .4rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: filter 150ms ease;
+}
+.btn-primary:hover,
+form button:hover { filter: brightness(1.1); }
+.btn-lg { font-size: 1.2rem; padding: 0.8rem 1.6rem; }
+
+/* =========================================================
+   THEME TOGGLE BUTTON
+   ========================================================= */
+.theme-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: .5rem;
+  padding: 4px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.theme-btn svg { stroke: #0055ff; }
+
+/* =========================================================
+   NAVBAR  (pill-highlight style)
+   ========================================================= */
+.navbar {
+  background: linear-gradient(90deg, #0038ff 0%, #0077ff 100%);
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  padding: .65rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.brand {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  margin-right: 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu a {
+  color: #e6ecff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: .75rem;
+  padding: .4rem .9rem;
+  border-radius: .4rem;
+  transition: background 180ms ease, color 180ms ease;
 }
+
+/* hover / focus */
+.menu a:hover,
+.menu a:focus {
+  background: rgba(255,255,255,.25);
+  color: #fff;
+}
+
+/* active page */
+.menu a.active {
+  background: #fff;
+  color: #0038ff;
+}
+
+/* =========================================================
+   DARK THEME OVERRIDES
+   ========================================================= */
+body.dark {
+  background: #121212;
+  color: #e5e5e5;
+}
+
+body.dark .navbar {
+  background: linear-gradient(90deg, #071a40 0%, #0e2f69 100%);
+  box-shadow: 0 2px 6px rgba(0,0,0,.45);
+}
+
+body.dark .brand           { color: #c7d8ff; }
+body.dark .menu a          { color: #aac4ff; }
+body.dark .menu a:hover,
+body.dark .menu a:focus    { background: rgba(255,255,255,.20); color: #fff; }
+body.dark .menu a.active   { background: #aac4ff; color: #071a40; }
+
+body.dark .theme-btn svg   { stroke: #80aaff; }
